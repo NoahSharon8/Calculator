@@ -2,26 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class id= operators>
 
+<div id="calculator">
 
-
-
-
-
-
-
-
-
-
-
-
+    <div id="keypad">
+        <button onclick="key">7</button>
+        <button onclick="key">8</button>
+        <button onclick="key">9</button>
+        <button onclick="key">+</button>
+        <button onclick="key">4</button>
+        <button onclick="key">5</button>
+        <button onclick="key">6</button>
+        <button onclick="key">-</button>
+        <button onclick="key">1</button>
+        <button onclick="key">2</button>
+        <button onclick="key">3</button>
+        <button onclick="key">*</button>
+        <button onclick="key">0</button>
+        <button onclick="key">(</button>
+        <button onclick="key">)</button>
+        <button onclick="key">/</button>
+        <button onclick="key">.</button>
+        <button onclick="key">%</button>
+        <button onclick="key">**</button>
+        <button onclick="key">=</button>
 
     </div>
 
+    <div id="arrows">
+        <button onclick="up">⇧</button>
+        <button onclick="down">⇩</button>
+    </div>
+
+    <div id="screen">
+        <div class="past">Past EQ</div>
+        <div class="past">Past EQ</div>
+        <div class="past">Past EQ</div>
+        <div class="past">Past EQ</div>
+        <div id="current">Current EQ</div>
+        <div id="answer">Answer</div>
+    </div>
+
+</div>
+
+<script src="index.js"></script>
 </body>
 </html>
+
