@@ -9,26 +9,35 @@ let done = false;
 let pos = 0;
 let enter = false;
 
-const string = () => {
+const string = () =>
+{
     return chars[chars.length - 1];
 };
 
-const pasteq = (box) => {
+const pasteq = (box) =>
+{
     return equations.length - 1 - pos - (pastys.length - 1 - box);
 };
 
-const fills = (box) => {
-    if (pasteq(box) >= 0) {
+const fills = (box) =>
+{
+    if (pasteq(box) >= 0)
+    {
         pastys[box].innerHTML = equations[pasteq(box)].text;
-    } else {
+    } else
+    {
         pastys[box].innerHTML = "Past EQ";
     }
 };
 
-const show = () => {
-    if (string() === "") {
+const show = () =>
+{
+    if (string() === "")
+    {
         current.innerHTML = "Current EQ";
-    } else {
+    }
+    else
+    {
         current.innerHTML = string();
     }
 
@@ -43,11 +52,14 @@ const show = () => {
     sessionStorage.setItem("answer", answer.innerHTML);
 };
 
-const add = (key) => {
-    if (enter) {
+const add = (key) =>
+{
+    if (enter)
+    {
         return;
     }
-    if (done) {
+    if (done)
+    {
         chars = [""];
         done = false;
     }
@@ -55,8 +67,10 @@ const add = (key) => {
     show();
 };
 
-const calculate = () => {
-    if (enter || string() === "") {
+const calculate = () =>
+{
+    if (enter || string() === "")
+    {
         return;
     }
     const answey = eval(string());
@@ -67,84 +81,108 @@ const calculate = () => {
     show();
 };
 
-const erase = () => {
-    if (chars.length > 1) {
+const erase = () =>
+{
+    if (chars.length > 1)
+    {
         chars.pop();
     }
     done = false;
     show();
 };
 
-const up = () => {
-    if (!enter && pos + pastys.length < equations.length) {
+const up = () =>
+{
+    if (!enter && pos + pastys.length < equations.length)
+    {
         pos++;
         show();
     }
 };
 
-const down = () => {
-    if (!enter && pos > 0) {
+const down = () =>
+{
+    if (!enter && pos > 0)
+    {
         pos--;
         show();
     }
 };
 
-const before = (box) => {
-    if (pasteq(box) >= 0) {
+const before = (box) =>
+{
+    if (pasteq(box) >= 0)
+    {
         chars = JSON.parse(JSON.stringify(equations[pasteq(box)].steps));
         done = false;
         show();
     }
 };
 
-document.addEventListener("keydown", (event) => {
-    if (stuff[event.key]) {
+document.addEventListener("keydown", (event) =>
+{
+    if (stuff[event.key])
+    {
         add(event.key);
     }
-    if (event.key === "Enter" || event.key === "=") {
+    if (event.key === "Enter" || event.key === "=")
+    {
         calculate();
     }
-    if (event.key === "Enter") {
+    if (event.key === "Enter")
+    {
         enter = true;
     }
-    if (event.key === "Backspace") {
+    if (event.key === "Backspace")
+    {
         erase();
     }
-    if (event.key === "ArrowUp") {
+    if (event.key === "ArrowUp")
+    {
         up();
     }
-    if (event.key === "ArrowDown") {
+    if (event.key === "ArrowDown")
+    {
         down();
     }
 });
 
-document.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
+document.addEventListener("keyup", (event) =>
+{
+    if (event.key === "Enter")
+    {
         enter = false;
     }
 });
 
-window.addEventListener("load", (event) => {
+window.addEventListener("load", (event) =>
+{
     const stored = sessionStorage.getItem("equations");
-    if (stored) {
+    if (stored)
+    {
         equations = JSON.parse(stored);
-    } else {
+    }
+    else
+    {
         equations = [];
         sessionStorage.setItem("equations", equations);
     }
 
     const rn = sessionStorage.getItem("steps");
-    if (rn) {
+    if (rn)
+    {
         chars = JSON.parse(rn);
     }
 
     const fins = sessionStorage.getItem("finished");
-    if (fins) {
+    if (fins)
+    {
         done = JSON.parse(fins);
     }
 
     const ans = sessionStorage.getItem("answer");
-    if (ans) {
+    if (ans)
+    {
         answer.innerHTML = ans;
     }
 

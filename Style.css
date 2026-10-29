@@ -8,9 +8,22 @@ body {
     justify-content: center;
 }
 
-#calculator {
+#calc {
     display: flex;
     align-items: center;
+}
+
+.keyy,
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 35px;
+    cursor: pointer;
 }
 
 #keypad {
@@ -20,6 +33,60 @@ body {
     row-gap: 25px;
     padding: 15px;
     border: 4px solid white;
+}
+
+#keypad .keyy {
+    height: 90px;
+}
+
+#arrows {
+    margin: 0 35px;
+}
+
+#arrows .arrow {
+    width: 100px;
+    height: 100px;
+    margin: 20px 0;
+    font-size: 50px;
+}
+
+#equations {
+    width: 345px;
+    padding: 15px;
+    border: 4px solid white;
+}
+
+.pasty,
+#current,
+#answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.pasty {
+    height: 60px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.pasty:hover {
+    background-color: #333333;
+}
+
+#current {
+    height: 150px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#answer {
+    width: 200px;
+    height: 60px;
+    margin-left: 135px;
 }
 
 
